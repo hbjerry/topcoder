@@ -1,7 +1,7 @@
 typedef struct { int v; int w ;} Edge;
-Edge EDGE(int, int);
+Edge EDGE(int V, int W);
 
-
+struct graph { int V; int E; int **adj;};
 typedef struct graph *Graph;
 Graph GRAPHInit(int);
 void GRAPHInsertE(Graph, Edge);

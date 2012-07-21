@@ -1,12 +1,11 @@
 #include <stdio.h>
+#include <malloc.h>
 #include "graph.h"
-
-struct graph { int V; int E; int **adj;};
-Graph GRAPHInit(int V)
+Edge EDGE(int V, int W)
 {
-	Graph G = malloc(sizeof(*G));
-	G->V = V; G->E = 0;
-	G->adj = MATRIXinit(V,V,0);
+  Edge a;
+  a.v = V; a.w = W;
+  return a;
 }
 
 int **MATRIXinit(int r, int c, int val)
@@ -23,9 +22,16 @@ int **MATRIXinit(int r, int c, int val)
 	return t;
 }
 
+Graph GRAPHInit(int V)
+{
+	Graph G = malloc(sizeof(*G));
+	G->V = V; G->E = 0;
+	G->adj = MATRIXinit(V,V,0);
+}
+
 void GRAPHInsertE(Graph G, Edge e)
 {
-	int v = e.V , w = e.w;
+	int v = e.v , w = e.w;
 	if(G->adj[v][w] == 0) G->E++;
 	G->adj[v][w] = 1;
 	G->adj[w][v] = 1;
@@ -33,13 +39,13 @@ void GRAPHInsertE(Graph G, Edge e)
 
 void GRAPHRemoveE(Graph G, Edge e)
 {
-	int v = e.V , w = e.w;
+	int v = e.v , w = e.w;
 	if(G->adj[v][w] == 1) G->E--;
 	G->adj[v][w] = 0;
 	G->adj[w][v] = 0;
 }
 
-int GRAPHedges(Edge[] a, Graph G)
+int GRAPHedges(Edge a[], Graph G)
 {
 	int v, w , E = 0;
 	for(v = 0; v < G->V; v++)

@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <graph.h>
+#include <stdlib.h>
+#include "graph.h"
 
 int randV(Graph G)
 {
@@ -8,9 +9,12 @@ int randV(Graph G)
 
 Graph GRAPHrand(int V, int E)
 {
-	Graph G = GRAPHInit(V, E);
+	Graph G = GRAPHInit(V);
 	while( G->E < E)
+  {
 		GRAPHInsertE(G,EDGE(randV(G), randV(G)));
+    printf("edge: %d",G->E);
+  }
 }
 
 int main(int argc, const char *argv[])
@@ -22,6 +26,6 @@ int main(int argc, const char *argv[])
 		GRAPHshow(G);
 	else
 		printf("%d vectices, %d edges, ", V, E);
-	printf("%d components(s)\n",GRAPHcc(G));
+	/*printf("%d components(s)\n",GRAPHcc(G));*/
 	return 0;
 }
