@@ -9,3 +9,6 @@ void GRAPHRemoveE(Graph, Edge);
 int GRAPHedges(Edge[], Graph G);
 Graph GRAPHcopy(Graph);
 void GRAPHdestroy(Graph);
+void GRAPHshow(Graph);
+
+Graph GRAPHrand(int V, int E);
