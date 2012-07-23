@@ -1,7 +1,19 @@
-typedef struct { int v; int w ;} Edge;
-Edge EDGE(int V, int W);
-
+typedef struct { int v; int w ; double wt;} Edge;
+Edge EDGE(int V, int W, double);
+#ifdef GRAPH_MATRIX
 struct graph { int V; int E; int **adj;};
+#else
+typedef struct node *link;
+struct node{ int v; double wt;link next;};
+struct graph { int V; int E;link *adj;};
+#endif
+
+//maxmium vertices num
+#define MAX_V 100
+
+// maxmium weight s
+#define MAXWT 10000
+
 typedef struct graph *Graph;
 Graph GRAPHInit(int);
 void GRAPHInsertE(Graph, Edge);
@@ -12,3 +24,5 @@ void GRAPHdestroy(Graph);
 void GRAPHshow(Graph);
 
 Graph GRAPHrand(int V, int E);
+
+void GRAPHdfs(Graph G, Edge e);
