@@ -1,5 +1,5 @@
-typedef struct { int key; double wt;} Item;
-Item ITEM(int , double);
+typedef struct { int key; int wt;} Item;
+Item ITEM(int , int);
 typedef struct pq { Item *head; int n; int max;};
 typedef struct pq *PQ;
 

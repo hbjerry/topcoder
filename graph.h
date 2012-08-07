@@ -1,10 +1,10 @@
-typedef struct { int v; int w ; double wt;} Edge;
-Edge EDGE(int V, int W, double);
+typedef struct { int v; int w ; int wt; int flow;} Edge;
+Edge EDGE(int V, int W, int, int);
 #ifdef GRAPH_MATRIX
 struct graph { int V; int E; int **adj;};
 #else
 typedef struct node *link;
-struct node{ int v; double wt;link next;};
+struct node{ int v; int wt;int flow;link next;link dup;};
 struct graph { int V; int E;link *adj;};
 #endif
 

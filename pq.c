@@ -1,6 +1,6 @@
 #include "pq.h"
 
-Item ITEM(int k, double v)
+Item ITEM(int k, int v)
 {
 	Item a;
 	a.key = k; a.wt = v;

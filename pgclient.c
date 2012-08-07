@@ -7,11 +7,11 @@ int main(int argc, const char *argv[])
 	int max_wt = atoi(argv[2]);
 	PQ p_pq = PQinit(max);
 	int i ;
-	double wt;
+	int wt;
 	Item item;
 	for ( i = 0 ;i < max; i++)
 	{
-		wt = ((double)max_wt) * (rand()/(RAND_MAX + 1.0));
+		wt = ((int)max_wt) * (rand()/(RAND_MAX + 1.0));
 		item.key = i;
 		item.wt = wt;
 		PQinsert(p_pq,item);
